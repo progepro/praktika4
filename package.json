@@ -1,0 +1,19 @@
+{
+  "name": "praktika4_backend",
+  "version": "1.0.0",
+  "description": "praktika4 backend projekt",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/progepro/veeb.git"
+  },
+  "author": "Keijo Kolga",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/progepro/veeb/issues"
+  },
+  "homepage": "https://github.com/progepro/veeb#readme"
+}
