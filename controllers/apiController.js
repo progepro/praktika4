@@ -34,4 +34,53 @@ module.exports = function (app) {
         return next(err);
       });
   });
+  app.get("/api/controllers", function (req, res) {
+    db.any("SELECT controllername FROM controller")
+      .then(function (data) {
+        res.json({
+          status: "success",
+          data: data,
+        });
+      })
+      .catch((err) => {
+        res.json({
+          description: "Can’t find any controller",
+          error: err,
+        });
+      });
+  });
+  app.get("/api/sensors", function (req, res) {
+    db.any(
+      "select * from public.controller_sensor inner join controller ON controller_sensor.id_controller=controller.id"
+    )
+      .then(function (data) {
+        res.json({
+          status: "success",
+          data: data,
+        });
+      })
+      .catch((err) => {
+        res.json({
+          description: "Can’t find any controller",
+          error: err,
+        });
+      });
+  });
+  app.get("/api/44/sensors", function (req, res) {
+    db.any(
+      "SELECT * from public.data_archive where room = '44' and data_archive.date_time = '2022-05-12 00:00:00'"
+    )
+      .then(function (data) {
+        res.json({
+          status: "success",
+          data: data,
+        });
+      })
+      .catch((err) => {
+        res.json({
+          description: "Can’t find any controller",
+          error: err,
+        });
+      });
+  });
 };
